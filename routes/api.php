@@ -39,4 +39,4 @@ Route::resource('statusorders', 'Statusorder\StatusorderController', ['only' => 
 /*
 Orders
 */
-Route::resource('orders', 'Order\OrderController');
+Route::resource('orders', 'Order\OrderController', ['except' => ['create', 'edit']]);
