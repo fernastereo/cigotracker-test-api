@@ -18,11 +18,13 @@ use Illuminate\Support\Facades\Route;
 Countries
 */
 Route::resource('countries', 'Country\CountryController', ['only' => ['index', 'show']]);
+Route::resource('countries.provinces', 'Country\CountryProvinceController', ['only' => ['index']]);
 
 /* 
 Provinces
 */
 Route::resource('provinces', 'Province\ProvinceController', ['only' => ['index', 'show']]);
+Route::resource('provinces.cities', 'Province\ProvinceCityController', ['only' => ['index']]);
 
 /* 
 Cities
@@ -34,3 +36,7 @@ Statusorders
 */
 Route::resource('statusorders', 'Statusorder\StatusorderController', ['only' => ['index', 'show']]);
 
+/*
+Orders
+*/
+Route::resource('orders', 'Order\OrderController');

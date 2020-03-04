@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 trait ApiResponser{
 
   private function successResponse($data, $code){
-    return response()->jason($data, $code);
+    return response()->json($data, $code);
   }
 
   protected function errorResponse($message, $code){

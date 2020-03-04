@@ -16,7 +16,7 @@ class ProvinceController extends ApiController
     public function index()
     {
         $provinces = Province::all();
-        return response()->json(['data' => $provinces], 200);
+        return $this->showAll($provinces);
     }
 
         /**
@@ -28,6 +28,6 @@ class ProvinceController extends ApiController
     public function show($id)
     {
         $province = Province::findOrFail($id);
-        return response()->json(['data' => $province], 200);
+        return $this->showOne($province);
     }
 }

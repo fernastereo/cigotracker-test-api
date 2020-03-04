@@ -16,7 +16,7 @@ class StatusorderController extends ApiController
     public function index()
     {
         $statusorders = Statusorder::all();
-        return response()->json(['data' => $statusorders], 200);
+        return $this->showAll($statusorders);
     }
 
         /**
@@ -28,6 +28,6 @@ class StatusorderController extends ApiController
     public function show($id)
     {
         $statusorder = Statusorder::findOrFail($id);
-        return response()->json(['data' => $statusorder], 200);
+        return $this->showOne($statusorder);
     }
 }

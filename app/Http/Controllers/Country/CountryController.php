@@ -16,7 +16,7 @@ class CountryController extends ApiController
     public function index()
     {
         $countries = Country::all();
-        return response()->json(['data' => $countries], 200);
+        return $this->showAll($countries);
     }
 
     /**
@@ -28,6 +28,6 @@ class CountryController extends ApiController
     public function show($id)
     {
         $country = Country::findOrFail($id);
-        return response()->json(['data' => $country], 200);
+        return $this->showOne($country);
     }
 }

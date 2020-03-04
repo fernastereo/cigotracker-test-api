@@ -16,7 +16,7 @@ class CityController extends ApiController
     public function index()
     {
         $cities = City::all();
-        return response()->json(['data' => $cities], 200);
+        return $this->showAll($cities);
     }
 
         /**
@@ -28,6 +28,6 @@ class CityController extends ApiController
     public function show($id)
     {
         $city = City::findOrFail($id);
-        return response()->json(['data' => $city], 200);
+        return $this->showOne($city);
     }
 }
