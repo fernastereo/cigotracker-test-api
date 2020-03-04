@@ -14,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+/* 
+Countries
+*/
+Route::resource('countries', 'Country\CountryController', ['only' => ['index', 'show']]);
+
+/* 
+Provinces
+*/
+Route::resource('provinces', 'Province\ProvinceController', ['only' => ['index', 'show']]);
+
+/* 
+Cities
+*/
+Route::resource('cities', 'City\CityController', ['only' => ['index', 'show']]);
+
+/* 
+Statusorders
+*/
+Route::resource('statusorders', 'Statusorder\StatusorderController', ['only' => ['index', 'show']]);
+
