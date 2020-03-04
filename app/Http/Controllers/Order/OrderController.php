@@ -17,6 +17,7 @@ class OrderController extends ApiController
     {
         $orders = Order::all();
         return $this->showAll($orders);
+        //return response()->json($orders);
     }
 
     /**
@@ -27,7 +28,7 @@ class OrderController extends ApiController
      */
     public function store(Request $request)
     {
-        //Reglas de validacion:
+        //validation rules
         $rules = [
             'firstname' => 'required',
             'phonenumber' => 'required',
@@ -35,12 +36,9 @@ class OrderController extends ApiController
             'streetaddress' => 'required',
             'email' => 'email',
         ];
-        //Esto ejecuta las regleas de validacion contra los datos
-        //si no pasan se genera una escepcion sino sigue el curso del codigo
         $this->validate($request, $rules);
 
-        $fields = $request->all(); //Asignamos todo el request a una variable campos
-        //Luego sobreescribimos los campos que no deben ser manipulados por el usuario sino internamente
+        $fields = $request->all(); 
         $fields['statusorder_id'] = Order::PENDING_ORDER;
 
         $order = Order::create($fields);
