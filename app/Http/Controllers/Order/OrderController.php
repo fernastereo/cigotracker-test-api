@@ -79,4 +79,10 @@ class OrderController extends ApiController
 
         return $this->showOne($order);
     }
+
+    public function destroy(Order $order){
+        $order->delete();
+
+        return $this->showOne($order);
+    }
 }
