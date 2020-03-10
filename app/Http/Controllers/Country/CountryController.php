@@ -15,7 +15,7 @@ class CountryController extends ApiController
      */
     public function index()
     {
-        $countries = Country::with('provinces', 'provinces.cities')->get();
+        $countries = Country::all();
         return $this->showAll($countries);
     }
 
